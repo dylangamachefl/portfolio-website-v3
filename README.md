@@ -1,20 +1,51 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Dylan Gamache - Portfolio Website
 
-# Run and deploy your AI Studio app
+A modern, interactive portfolio website showcasing my projects, skills, and experience as a Data Analyst & AI Engineer.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1MtHjjE-mxCzV-ERh2HpXR69SXBPjevH5
+- **Responsive Design** - Optimized for desktop and mobile devices
+- **AI Assistant** - Powered by Gemma 3 27B for interactive Q&A about my work
+- **Project Showcase** - Filterable gallery of selected projects
+- **Dark Mode** - Toggle between light and dark themes
+- **Modern UI** - Built with React, TypeScript, and Tailwind CSS
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS
+- **AI**: Gemma 3 27B (via Transformers.js)
+- **Build Tool**: Vite
+- **Deployment**: Ready for static hosting
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready files will be in the `dist` directory.
+
+## License
+
+© 2026 Dylan Gamache. All rights reserved.

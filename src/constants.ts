@@ -155,10 +155,27 @@ export const SOCIALS: SocialLink[] = [
     color: '#1DB954'
   },
   {
-    platform: 'Gmail',
-    url: 'mailto:dylangamachefl@gmail.com',
-    username: 'dylangamachefl@gmail.com',
-    iconPath: 'M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z',
-    color: '#EA4335'
+    platform: 'Message',
+    url: '#',
+    username: 'Send me a message',
+    iconPath: 'M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'
   }
 ];
+
+// Google Forms Contact Configuration
+// IMPORTANT: Replace these placeholder values with your actual Google Form details
+// To find your entry IDs:
+// 1. Open your Google Form in preview mode
+// 2. Right-click on each input field and select "Inspect"
+// 3. Look for the 'name' attribute (e.g., name="entry.1234567890")
+export const GOOGLE_FORM_CONFIG = {
+  // Replace with your form's action URL (ends with /formResponse)
+  formActionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScXe2pfHxWTvjg82UWrP-bPUJNZFrFNLeVniNRys0MxaGK1fg/formResponse',
+
+  // Replace with your actual entry IDs
+  entryIds: {
+    name: 'entry.930533237',
+    email: 'entry.1666102088',
+    message: 'entry.1069664208'
+  }
+};

@@ -5,15 +5,17 @@ import { AiAssistant } from './components/AiAssistant';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
+import { ContactModal } from './components/ContactModal';
 import { MeshGradientBackground } from './components/MeshGradientBackground';
 import { FadeIn } from './components/FadeIn';
 import { TechStack } from './components/TechStack';
-import { PROJECTS, INTERESTS, SOCIALS, USER_NAME, USER_ROLE, USER_BIO } from './constants';
+import { PROJECTS, INTERESTS, SOCIALS, USER_NAME, USER_ROLE, USER_BIO, GOOGLE_FORM_CONFIG } from './constants';
 import { Project } from './types';
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -186,21 +188,34 @@ const App: React.FC = () => {
               <FadeIn direction="left" delay={200}>
                 <BentoCard title="Connect">
                   <div className="grid grid-cols-2 gap-4">
-                    {SOCIALS.map(social => (
-                      <a key={social.platform} className="flex flex-col items-center justify-center gap-3 rounded-xl bg-background-light p-4 hover:bg-white hover:shadow-md dark:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 group hover:-translate-y-1 border border-transparent hover:border-slate-100 dark:hover:border-slate-500" href={social.url}>
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-light dark:bg-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                          <svg
-                            className={`w-6 h-6 transition-colors ${social.color ? '' : 'fill-current text-text-light-secondary dark:text-text-dark-secondary group-hover:text-primary'}`}
-                            style={social.color ? { fill: social.color } : {}}
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d={social.iconPath} />
-                          </svg>
-                        </div>
-                        <span className="font-medium text-sm group-hover:text-primary transition-colors">{social.platform}</span>
-                      </a>
-                    ))}
+                    {SOCIALS.map(social => {
+                      // Use button for Message to trigger modal, link for others
+                      const isMessage = social.platform === 'Message';
+                      const Component = isMessage ? 'button' : 'a';
+                      const props = isMessage
+                        ? { onClick: () => setIsContactModalOpen(true), type: 'button' as const }
+                        : { href: social.url, target: '_blank', rel: 'noopener noreferrer' };
+
+                      return (
+                        <Component
+                          key={social.platform}
+                          className="flex flex-col items-center justify-center gap-3 rounded-xl bg-background-light p-4 hover:bg-white hover:shadow-md dark:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 group hover:-translate-y-1 border border-transparent hover:border-slate-100 dark:hover:border-slate-500"
+                          {...props}
+                        >
+                          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-light dark:bg-slate-800 shadow-sm group-hover:scale-110 transition-transform">
+                            <svg
+                              className={`w-6 h-6 transition-colors ${social.color ? '' : 'fill-current text-text-light-secondary dark:text-text-dark-secondary group-hover:text-primary'}`}
+                              style={social.color ? { fill: social.color } : {}}
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d={social.iconPath} />
+                            </svg>
+                          </div>
+                          <span className="font-medium text-sm group-hover:text-primary transition-colors">{social.platform}</span>
+                        </Component>
+                      );
+                    })}
                   </div>
                 </BentoCard>
               </FadeIn>
@@ -285,6 +300,14 @@ const App: React.FC = () => {
             pdfUrl="/Dylan_Gamache_Resume.pdf"
           />
         )}
+
+        {/* Contact Modal */}
+        <ContactModal
+          isOpen={isContactModalOpen}
+          onClose={() => setIsContactModalOpen(false)}
+          formActionUrl={GOOGLE_FORM_CONFIG.formActionUrl}
+          entryIds={GOOGLE_FORM_CONFIG.entryIds}
+        />
       </div>
     </>
   );

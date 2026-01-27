@@ -18,34 +18,6 @@ A modern, interactive portfolio website showcasing my projects, skills, and expe
 - **Build Tool**: Vite
 - **Deployment**: Ready for static hosting
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-The production-ready files will be in the `dist` directory.
-
 ## License
 
 © 2026 Dylan Gamache. All rights reserved.

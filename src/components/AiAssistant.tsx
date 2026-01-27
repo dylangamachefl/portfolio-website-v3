@@ -7,7 +7,7 @@ import { BentoCard } from './BentoCard';
 
 export const AiAssistant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: "Hi! I'm Dylan's AI assistant. Ask me anything about my projects, skills, or experience." }
+    { role: 'model', text: "Hi! I'm Dylan's AI assistant. Ask me anything about his projects, skills, or experience." }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);

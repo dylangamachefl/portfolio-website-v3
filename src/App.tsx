@@ -207,7 +207,7 @@ const App: React.FC = () => {
 
               {/* AI Assistant - Fixed height to align with Technical Proficiency bottom, scrolls internally */}
               <FadeIn direction="left" delay={400}>
-                <div className="h-[730px]">
+                <div className="h-[950px]">
                   <AiAssistant />
                 </div>
               </FadeIn>

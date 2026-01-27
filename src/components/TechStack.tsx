@@ -6,13 +6,13 @@ import { SKILLS } from '../constants';
 export const TechStack: React.FC = () => {
   return (
     <BentoCard title="Technical Proficiency" className="min-h-[200px]">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {SKILLS.map((skillGroup) => {
           // Determine color theme based on category name
           let theme: 'blue' | 'purple' | 'emerald' = 'blue';
           if (skillGroup.category.includes('AI') || skillGroup.category.includes('Machine')) theme = 'purple';
           else if (skillGroup.category.includes('Data') || skillGroup.category.includes('BI')) theme = 'emerald';
-          
+
           const themes = {
             blue: {
               bg: 'bg-blue-50/50 dark:bg-blue-900/10',
@@ -38,8 +38,8 @@ export const TechStack: React.FC = () => {
           }[theme];
 
           return (
-            <div 
-              key={skillGroup.category} 
+            <div
+              key={skillGroup.category}
               className={`
                 group relative flex flex-col p-5 rounded-2xl border transition-all duration-300
                 ${themes.bg} ${themes.border} ${themes.hoverBorder}
@@ -48,21 +48,21 @@ export const TechStack: React.FC = () => {
             >
               {/* Header */}
               <div className="flex items-center gap-4 mb-5">
-                 <div className={`
+                <div className={`
                    flex items-center justify-center w-12 h-12 rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3
                    ${themes.iconBox}
                  `}>
-                    <span className="material-icons-outlined text-2xl">{skillGroup.icon}</span>
-                 </div>
-                 <h4 className="font-bold text-slate-900 dark:text-white text-base leading-tight">
-                   {skillGroup.category}
-                 </h4>
+                  <span className="material-icons-outlined text-2xl">{skillGroup.icon}</span>
+                </div>
+                <h4 className="font-bold text-slate-900 dark:text-white text-base leading-tight">
+                  {skillGroup.category}
+                </h4>
               </div>
 
               {/* Skills Grid */}
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-2">
                 {skillGroup.items.map((skill) => (
-                  <span 
+                  <span
                     key={skill}
                     className={`
                       px-3 py-1.5 text-xs font-semibold rounded-lg border shadow-sm transition-all duration-200

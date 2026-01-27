@@ -56,13 +56,18 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: "AI & Machine Learning",
-    items: ["XGBoost", "Scikit-Learn", "RAG", "LLM Orchestration", "K-Means Clustering"],
+    items: ["RAG", "LLM Orchestration", "Multi-Agent Systems", "XGBoost", "LightGBM", "Scikit-Learn", "DSPy"],
     icon: "psychology"
   },
   {
     category: "Data Engineering & BI",
-    items: ["SSIS", "ETL/ELT Pipelines", "Power BI", "Tableau", "SQL Server (SSMS)", "Qdrant"],
+    items: ["SSIS", "ETL/ELT Pipeline Design", "SQL Server (SSMS)", "Power BI", "Tableau", "Qdrant", "FAISS"],
     icon: "storage"
+  },
+  {
+    category: "Full Stack & DevOps",
+    items: ["FastAPI", "Streamlit", "React", "TypeScript", "Docker", "Redis", "Git"],
+    icon: "build"
   }
 ];
 
@@ -73,9 +78,11 @@ export const EXPERIENCE: ExperienceItem[] = [
     company: 'Cayuse Holdings at Cisco',
     period: 'Feb 2022 - Present',
     description: [
-      'Engineered and deployed ETL/ELT data pipelines using VBA and SSIS, reducing manual intervention by 100%.',
-      'Architected complex ETL processes in Power Query and SQL, maintaining 99%+ accuracy across enterprise datasets.',
-      'Automated a manual reporting pipeline in collaboration with Cisco IT, saving 5 hours per week.'
+      'Engineered and deployed automated ETL/ELT pipelines using VBA, SSIS, and SQL, achieving a 100% reduction in manual intervention.',
+      'Architected robust data validation frameworks and complex ETL processes, maintaining 99%+ accuracy across high-stakes enterprise datasets.',
+      'Acted as a technical liaison between stakeholders and IT teams to resolve production issues and adapt systems to evolving business intelligence requirements.',
+      'Automated critical reporting workflows in collaboration with the Cisco IT team, saving an estimated 5 hours of manual work per week.',
+      'Developed advanced SQL queries and ad-hoc data extractions to enable data-driven decision-making for key stakeholders.'
     ]
   },
   {
@@ -84,8 +91,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     company: "Zaxby's",
     period: 'Oct 2018 - 2022',
     description: [
-      'Maintained high standards of customer service excellence in a fast-paced environment.',
-      'Supervised daily operations and provided support in escalated situations.'
+      'Supervised daily operations and provided critical support in escalated situations within a fast-paced environment.',
+      'Maintained high standards of service excellence while fostering a positive work environment and managing team performance.'
     ]
   }
 ];
@@ -96,6 +103,24 @@ export const EDUCATION: EducationItem[] = [
     degree: 'B.S. Business Administration, Integrated Business',
     institution: 'University of Central Florida',
     period: 'Dec 2021'
+  }
+];
+
+export const CERTIFICATIONS = [
+  {
+    title: 'Machine Learning Specialization',
+    provider: 'DeepLearning.ai',
+    date: '2024'
+  },
+  {
+    title: 'Microsoft Azure Data Fundamentals',
+    provider: 'Microsoft',
+    date: '2023'
+  },
+  {
+    title: 'Google Data Analytics Professional',
+    provider: 'Google',
+    date: '2022'
   }
 ];
 

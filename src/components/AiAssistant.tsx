@@ -11,6 +11,7 @@ export const AiAssistant: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [retryStatus, setRetryStatus] = useState<string | null>(null);
 
   // Use a ref for the scrollable container
   const chatContainerRef = useRef<HTMLDivElement>(null);
@@ -41,6 +42,7 @@ export const AiAssistant: React.FC = () => {
 
     const userText = inputValue;
     setInputValue('');
+    setRetryStatus(null);
 
     // Add user message
     setMessages(prev => [...prev, { role: 'user', text: userText }]);
@@ -68,18 +70,24 @@ export const AiAssistant: React.FC = () => {
     } catch (error) {
       console.error("Streaming error:", error);
       setMessages(prev => {
-        // Remove the empty placeholder if it failed immediately, or append error
         const newMessages = [...prev];
         const lastMessage = newMessages[newMessages.length - 1];
+
+        // If the last message is empty, replace it with error message
         if (lastMessage.role === 'model' && lastMessage.text === '') {
-          lastMessage.text = "Sorry, I encountered an error. Please try again.";
-        } else {
-          newMessages.push({ role: 'model', text: "Sorry, I encountered an error. Please try again." });
+          lastMessage.text = "⚠️ **Connection Error**\n\nI couldn't connect to the AI service. Please try again.";
+        } else if (lastMessage.role === 'model' && !lastMessage.text.includes('⚠️')) {
+          // If there's partial content but no error indicator, append error
+          newMessages.push({
+            role: 'model',
+            text: "⚠️ **Partial Response**\n\nThe connection was interrupted. Please try asking again."
+          });
         }
         return newMessages;
       });
     } finally {
       setIsLoading(false);
+      setRetryStatus(null);
     }
   };
 
@@ -155,6 +163,14 @@ export const AiAssistant: React.FC = () => {
             </div>
           )}
         </div>
+
+        {/* Retry Status Indicator */}
+        {retryStatus && (
+          <div className="px-3 py-2 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-xs text-amber-800 dark:text-amber-200 flex items-center gap-2 mb-2">
+            <span className="material-icons-outlined text-sm animate-spin">refresh</span>
+            <span>{retryStatus}</span>
+          </div>
+        )}
 
         {/* Input */}
         <form onSubmit={handleSendMessage} className="relative mt-auto pt-2 shrink-0">

@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
-import { PROJECTS, INTERESTS, SKILLS, USER_NAME, USER_ROLE, USER_BIO } from '../constants';
+import { PROJECTS, INTERESTS, SKILLS, USER_NAME, USER_ROLE, USER_BIO, EXPERIENCE, EDUCATION } from '../constants';
 import { retryWithBackoff, RetryableError } from '../utils/retryWithBackoff';
 
 const apiKey = process.env.API_KEY || '';
@@ -10,11 +10,23 @@ const ai = new GoogleGenAI({ apiKey });
 const projectContext = PROJECTS.map(p => `- ${p.title}: ${p.description} (Tech: ${p.tags.join(', ')})`).join('\n');
 const interestContext = INTERESTS.map(i => i.label).join(', ');
 const skillsContext = SKILLS.map(s => `${s.category}: ${s.items.join(', ')}`).join('\n');
+const experienceContext = EXPERIENCE.map(exp =>
+  `**${exp.role}** at ${exp.company} (${exp.period}):\n${exp.description.map(d => `  - ${d}`).join('\n')}`
+).join('\n\n');
+const educationContext = EDUCATION.map(edu =>
+  `- ${edu.degree} from ${edu.institution} (${edu.period})`
+).join('\n');
 
 const SYSTEM_CONTEXT = `
 You are an AI assistant embedded in ${USER_NAME}'s portfolio website. 
 ${USER_NAME} is a ${USER_ROLE}.
 About ${USER_NAME}: ${USER_BIO}
+
+Here is ${USER_NAME}'s work experience:
+${experienceContext}
+
+Here is ${USER_NAME}'s education:
+${educationContext}
 
 Here is a list of ${USER_NAME}'s projects that you can discuss:
 ${projectContext}
@@ -26,10 +38,10 @@ Here are ${USER_NAME}'s personal interests:
 ${interestContext}
 
 Your primary goals are:
-1. Represent ${USER_NAME} professionally and answer questions about their work, skills, projects, and interests based STRICTLY on the information provided above.
+1. Represent ${USER_NAME} professionally and answer questions about their work, skills, projects, interests, experience, and education based STRICTLY on the information provided above.
 2. If asked about something not in the provided information, politely state that you don't have that information.
 3. Keep responses concise, friendly, and helpful. 
-4. Do not make up facts about projects that are not listed.
+4. Do not make up facts about projects, experience, or education that are not listed.
 5. **Format your responses using Markdown.** Use bold text for emphasis (e.g., project titles, key skills), bullet points for lists, and code blocks if sharing code snippets. This makes the text easier to read in a chat interface.
 `;
 

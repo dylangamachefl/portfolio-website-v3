@@ -163,16 +163,10 @@ export const SOCIALS: SocialLink[] = [
 ];
 
 // Google Forms Contact Configuration
-// IMPORTANT: Replace these placeholder values with your actual Google Form details
-// To find your entry IDs:
-// 1. Open your Google Form in preview mode
-// 2. Right-click on each input field and select "Inspect"
-// 3. Look for the 'name' attribute (e.g., name="entry.1234567890")
 export const GOOGLE_FORM_CONFIG = {
   // Replace with your form's action URL (ends with /formResponse)
   formActionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScXe2pfHxWTvjg82UWrP-bPUJNZFrFNLeVniNRys0MxaGK1fg/formResponse',
 
-  // Replace with your actual entry IDs
   entryIds: {
     name: 'entry.930533237',
     email: 'entry.1666102088',

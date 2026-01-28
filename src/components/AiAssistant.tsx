@@ -123,11 +123,15 @@ export const AiAssistant: React.FC = () => {
           className="flex-1 overflow-y-auto pr-2 space-y-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-700 mb-4 min-h-0"
         >
           {messages.map((msg, idx) => (
-            <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div
+              key={idx}
+              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} ${msg.role === 'user' ? 'animate-slide-in-right' : 'animate-slide-in-left'
+                }`}
+            >
               <div
-                className={`w-fit max-w-[90%] rounded-lg p-3 text-sm ${msg.role === 'user'
-                  ? 'bg-primary text-white'
-                  : 'bg-slate-100 dark:bg-slate-700 text-text-light-primary dark:text-text-dark-primary'
+                className={`w-fit max-w-[90%] rounded-lg p-3 text-sm shadow-sm transition-all duration-300 hover:shadow-md ${msg.role === 'user'
+                    ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white'
+                    : 'bg-slate-100 dark:bg-slate-700 text-text-light-primary dark:text-text-dark-primary'
                   }`}
               >
                 {msg.role === 'model' ? (
@@ -175,8 +179,8 @@ export const AiAssistant: React.FC = () => {
         {/* Input */}
         <form onSubmit={handleSendMessage} className="relative mt-auto pt-2 shrink-0">
           <input
-            className="w-full rounded-full border-border-light bg-background-light py-2 pl-4 pr-10 text-sm focus:border-primary focus:ring-primary dark:border-border-dark dark:bg-slate-700 dark:text-text-dark-primary dark:placeholder-slate-400 focus:outline-none focus:ring-2"
-            placeholder="Type a message..."
+            className="w-full rounded-full border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm py-2 pl-4 pr-10 text-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:text-text-dark-primary dark:placeholder-slate-400 focus:outline-none transition-all duration-300 focus-glow shadow-sm"
+            placeholder="Ask about Dylan's experience..."
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -185,7 +189,7 @@ export const AiAssistant: React.FC = () => {
           <button
             type="submit"
             disabled={!inputValue.trim() || isLoading}
-            className="absolute right-1.5 top-3.5 p-1 text-primary hover:text-blue-600 dark:text-blue-400 disabled:opacity-50"
+            className="absolute right-1.5 top-3.5 p-1.5 rounded-full text-primary hover:text-blue-600 dark:text-blue-400 disabled:opacity-50 transition-all duration-200 hover-pulse hover:bg-blue-50 dark:hover:bg-blue-900/20"
           >
             <span className="material-icons-outlined text-sm">send</span>
           </button>

@@ -45,6 +45,16 @@ export const PROJECTS: Project[] = [
     link: '#',
     sourceUrl: 'https://github.com/dylangamachefl/fantasy-football-chatbot-v2',
     imageUrl: '/fantasy-football-chatbot.png'
+  },
+  {
+    id: '5',
+    title: 'WTStats - Fantasy Hub',
+    description: 'A comprehensive interactive archive of fantasy football league history and statistics. Features automated deployment of static data architectures to visualize decades of competitive legacy.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'MDX'],
+    color: 'bg-blue-600',
+    link: 'https://dylangamachefl.github.io/WTStats/',
+    sourceUrl: 'https://github.com/dylangamachefl/WTStats',
+    imageUrl: '/WTStats.png'
   }
 ];
 

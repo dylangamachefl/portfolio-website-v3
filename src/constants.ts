@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     tags: ['Python', 'Gemini API', 'Streamlit', 'Multi-Agent'],
     color: 'bg-blue-500',
     link: 'https://data-to-analysis-app.streamlit.app/',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/data-to-analysis',
     imageUrl: '/data-to-analysis.png'
   },
   {
@@ -23,17 +23,17 @@ export const PROJECTS: Project[] = [
     tags: ['Ollama', 'FastAPI', 'FAISS', 'LangChain'],
     color: 'bg-purple-500',
     link: '#',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/docu-query',
     imageUrl: '/docuquery.png'
   },
   {
     id: '3',
-    title: 'Podcast Transcription & RAG',
+    title: 'PodScribe',
     description: 'Production-ready system for automated transcription with speaker diarization and semantic search using WhisperX and Qdrant.',
     tags: ['WhisperX', 'Qdrant', 'Redis', 'React'],
     color: 'bg-red-500',
     link: '#',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/pod-scribe',
     imageUrl: '/distill.png'
   },
   {
@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
     tags: ['WebLLM', 'SQLite WASM', 'TypeScript', 'DSPy'],
     color: 'bg-emerald-500',
     link: '#',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/fantasy-football-chatbot-v2',
     imageUrl: '/fantasy-football-chatbot.png'
   }
 ];

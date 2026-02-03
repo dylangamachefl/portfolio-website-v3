@@ -116,7 +116,7 @@ const App: React.FC = () => {
                       <img
                         alt={`Portrait of ${USER_NAME}`}
                         className="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover ring-4 ring-white dark:ring-slate-800 shadow-md transition-transform duration-300 hover:scale-105"
-                        src="/portrait.png"
+                        src={`${import.meta.env.BASE_URL}portrait.png`}
                       />
                       <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-text-light-primary dark:text-text-dark-primary">{USER_NAME}</h2>
@@ -164,7 +164,7 @@ const App: React.FC = () => {
                     <img
                       alt="Bradenton, FL Placeholder"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      src="/location.jpg"
+                      src={`${import.meta.env.BASE_URL}location.jpg`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
                     <div className="absolute bottom-6 left-6 transform transition-transform duration-300 group-hover:-translate-y-1">
@@ -297,7 +297,7 @@ const App: React.FC = () => {
         {isResumeOpen && (
           <ResumeModal
             onClose={() => setIsResumeOpen(false)}
-            pdfUrl="/Dylan_Gamache_Resume.pdf"
+            pdfUrl={`${import.meta.env.BASE_URL}Dylan_Gamache_Resume.pdf`}
           />
         )}
 

@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     color: 'bg-blue-500',
     link: 'https://data-to-analysis-app.streamlit.app/',
     sourceUrl: 'https://github.com/dylangamachefl/data-to-analysis',
-    imageUrl: '/data-to-analysis.png'
+    imageUrl: `${import.meta.env.BASE_URL}data-to-analysis.png`
   },
   {
     id: '2',
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     color: 'bg-purple-500',
     link: '#',
     sourceUrl: 'https://github.com/dylangamachefl/docu-query',
-    imageUrl: '/docuquery.png'
+    imageUrl: `${import.meta.env.BASE_URL}docuquery.png`
   },
   {
     id: '3',
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     color: 'bg-red-500',
     link: '#',
     sourceUrl: 'https://github.com/dylangamachefl/pod-scribe',
-    imageUrl: '/distill.png'
+    imageUrl: `${import.meta.env.BASE_URL}distill.png`
   },
   {
     id: '4',
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
     color: 'bg-emerald-500',
     link: '#',
     sourceUrl: 'https://github.com/dylangamachefl/fantasy-football-chatbot-v2',
-    imageUrl: '/fantasy-football-chatbot.png'
+    imageUrl: `${import.meta.env.BASE_URL}fantasy-football-chatbot.png`
   },
   {
     id: '5',
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     color: 'bg-blue-600',
     link: 'https://dylangamachefl.github.io/WTStats/',
     sourceUrl: 'https://github.com/dylangamachefl/WTStats',
-    imageUrl: '/WTStats.png'
+    imageUrl: `${import.meta.env.BASE_URL}WTStats.png`
   }
 ];
 

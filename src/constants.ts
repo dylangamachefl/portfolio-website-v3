@@ -2,7 +2,7 @@
 import { Interest, Project, SocialLink, SkillCategory, ExperienceItem, EducationItem } from './types';
 
 export const USER_NAME = "Dylan Gamache";
-export const USER_ROLE = "Data Analyst & AI Engineer";
+export const USER_ROLE = "Data Analyst & AI Developer";
 export const USER_BIO = "Data Analyst with a proven track record of increasing operational efficiency by 100% through automated ETL/ELT pipelines. I specialize in transforming complex datasets into actionable business intelligence using SQL, Python, and multi-agent AI systems.";
 
 export const PROJECTS: Project[] = [

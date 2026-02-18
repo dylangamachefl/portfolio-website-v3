@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { BentoCard } from './components/BentoCard';
 import { AiAssistant } from './components/AiAssistant';
 import { ProjectCard } from './components/ProjectCard';
@@ -308,6 +309,9 @@ const App: React.FC = () => {
           formActionUrl={GOOGLE_FORM_CONFIG.formActionUrl}
           entryIds={GOOGLE_FORM_CONFIG.entryIds}
         />
+
+        {/* Vercel Web Analytics */}
+        <Analytics />
       </div>
     </>
   );

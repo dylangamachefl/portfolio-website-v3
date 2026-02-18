@@ -234,7 +234,7 @@ const App: React.FC = () => {
           <section className="mt-16">
             <FadeIn>
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full mb-8">
-                <h2 className="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary whitespace-nowrap">Selected Projects</h2>
+                <h2 className="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary whitespace-nowrap">Hobby Projects</h2>
 
                 {/* Search Bar */}
                 <div className="relative w-full sm:w-64 group">
@@ -252,8 +252,8 @@ const App: React.FC = () => {
               </div>
             </FadeIn>
 
-            {/* Fixed Height Container to prevent layout shift */}
-            <div className="h-[600px] lg:h-[800px] overflow-y-auto p-2 pr-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-700 relative">
+            {/* Projects Container - No fixed height to allow expansion */}
+            <div className="p-2 pr-4 relative">
               {filteredProjects.length > 0 ? (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-2">
                   {filteredProjects.map((project, index) => (

@@ -55,6 +55,36 @@ export const PROJECTS: Project[] = [
     link: 'https://dylangamachefl.github.io/WTStats/',
     sourceUrl: 'https://github.com/dylangamachefl/WTStats',
     imageUrl: `${import.meta.env.BASE_URL}WTStats.png`
+  },
+  {
+    id: '6',
+    title: 'Grocery Deal Finder',
+    description: 'An intelligent multi-agent AI system that analyzes grocery store weekly ads and matches them against your shopping list to find the best deals.',
+    tags: ['React', 'Gemma 3', 'Multi-Agent', 'Vector Embeddings'],
+    color: 'bg-emerald-600',
+    link: 'https://dylangamachefl.github.io/grocery-deal-finder/',
+    sourceUrl: 'https://github.com/dylangamachefl/grocery-deal-finder',
+    imageUrl: `${import.meta.env.BASE_URL}grocery-deal-finder.png`
+  },
+  {
+    id: '7',
+    title: 'tinyvc - Market Strategy',
+    description: 'Fully automated market strategy pipeline performing top-down regime analysis with real-time news integration and LLM synthesis.',
+    tags: ['Python', 'Gemini API', 'Market Analysis', 'Tavily'],
+    color: 'bg-indigo-600',
+    link: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/tinyvc',
+    imageUrl: `${import.meta.env.BASE_URL}tinyvc.png`
+  },
+  {
+    id: '8',
+    title: 'Sarasota Market Pulse',
+    description: 'Serverless ETL pipeline ingesting real estate data to compute market intelligence like Price Pressure, Inventory Absorption, and Cash Flow Zones.',
+    tags: ['Python', 'ETL', 'GitHub Actions', 'Real Estate'],
+    color: 'bg-cyan-600',
+    link: '#',
+    sourceUrl: 'https://github.com/dylangamachefl/srq-pulse',
+    imageUrl: `${import.meta.env.BASE_URL}srq-pulse.png`
   }
 ];
 

@@ -12,14 +12,14 @@ export const ThemeToggleIcon = ({ isDark }: { isDark: boolean }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             style={{
-                transform: isDark ? 'rotate(40deg)' : 'rotate(90deg)',
+                transform: !isDark ? 'rotate(40deg)' : 'rotate(90deg)',
             }}
         >
             <mask id="moon-mask">
                 <rect x="0" y="0" width="100%" height="100%" fill="white" />
                 <circle
-                    cx={isDark ? "12" : "24"}
-                    cy={isDark ? "4" : "10"}
+                    cx={!isDark ? "12" : "24"}
+                    cy={!isDark ? "4" : "10"}
                     r="6"
                     fill="black"
                     className="transition-all duration-500"
@@ -28,7 +28,7 @@ export const ThemeToggleIcon = ({ isDark }: { isDark: boolean }) => {
             <circle
                 cx="12"
                 cy="12"
-                r={isDark ? "9" : "5"}
+                r={!isDark ? "9" : "5"}
                 fill="currentColor"
                 mask="url(#moon-mask)"
                 className="transition-all duration-500"
@@ -36,7 +36,7 @@ export const ThemeToggleIcon = ({ isDark }: { isDark: boolean }) => {
             <g
                 className="transition-all duration-500"
                 style={{
-                    opacity: isDark ? 0 : 1,
+                    opacity: !isDark ? 0 : 1,
                 }}
             >
                 <line x1="12" y1="1" x2="12" y2="3" />

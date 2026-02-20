@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { streamMessageToGemini, initializeChat } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import { BentoCard } from './BentoCard';
+import { ThinkingDotsIcon, SendArrowIcon } from './AnimatedIcons';
 
 export const AiAssistant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -130,8 +131,8 @@ export const AiAssistant: React.FC = () => {
             >
               <div
                 className={`w-fit max-w-[90%] rounded-lg p-3 text-sm shadow-sm transition-all duration-300 hover:shadow-md ${msg.role === 'user'
-                    ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white'
-                    : 'bg-slate-100 dark:bg-slate-700 text-text-light-primary dark:text-text-dark-primary'
+                  ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white'
+                  : 'bg-slate-100 dark:bg-slate-700 text-text-light-primary dark:text-text-dark-primary'
                   }`}
               >
                 {msg.role === 'model' ? (
@@ -159,10 +160,8 @@ export const AiAssistant: React.FC = () => {
           {/* Thinking Indicator (only show if loading AND the last message is empty - i.e. waiting for first chunk) */}
           {isLoading && messages[messages.length - 1]?.text === '' && (
             <div className="flex justify-start">
-              <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 text-sm flex items-center gap-2">
-                <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
-                <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-75"></span>
-                <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-150"></span>
+              <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 text-sm flex items-center h-[44px]">
+                <ThinkingDotsIcon />
               </div>
             </div>
           )}
@@ -177,7 +176,7 @@ export const AiAssistant: React.FC = () => {
         )}
 
         {/* Input */}
-        <form onSubmit={handleSendMessage} className="relative mt-auto pt-2 shrink-0">
+        <form onSubmit={handleSendMessage} className="relative mt-auto pt-2 shrink-0 group">
           <input
             className="w-full rounded-full border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm py-2 pl-4 pr-10 text-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:text-text-dark-primary dark:placeholder-slate-400 focus:outline-none transition-all duration-300 focus-glow shadow-sm"
             placeholder="Ask about Dylan's experience..."
@@ -189,9 +188,9 @@ export const AiAssistant: React.FC = () => {
           <button
             type="submit"
             disabled={!inputValue.trim() || isLoading}
-            className="absolute right-1.5 top-3.5 p-1.5 rounded-full text-primary hover:text-blue-600 dark:text-blue-400 disabled:opacity-50 transition-all duration-200 hover-pulse hover:bg-blue-50 dark:hover:bg-blue-900/20"
+            className="absolute right-1.5 top-3.5 p-1.5 rounded-full text-primary hover:text-blue-600 dark:text-blue-400 disabled:opacity-50 transition-all duration-200 hover-pulse hover:bg-blue-50 dark:hover:bg-blue-900/20 flex flex-col items-center justify-center"
           >
-            <span className="material-icons-outlined text-sm">send</span>
+            <SendArrowIcon className="group-hover:animate-shift-right" />
           </button>
         </form>
       </div>

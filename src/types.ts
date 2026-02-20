@@ -1,4 +1,5 @@
 
+import React from 'react';
 
 export interface Project {
   id: string;
@@ -14,14 +15,15 @@ export interface Project {
 export interface Interest {
   id: string;
   label: string;
-  icon: string;
+  icon: React.ReactNode;
 }
 
 export interface SocialLink {
   platform: string;
   url: string;
   username: string;
-  iconPath: string;
+  customIcon?: React.ReactNode;
+  iconPath?: string;
   color?: string;
 }
 

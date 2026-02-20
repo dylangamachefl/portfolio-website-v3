@@ -2,6 +2,7 @@
 import React from 'react';
 import { BentoCard } from './BentoCard';
 import { SKILLS } from '../constants';
+import { CodeDrawIcon, BrainDrawIcon, DatabaseDrawIcon, WrenchDrawIcon } from './AnimatedIcons';
 
 export const TechStack: React.FC = () => {
   return (
@@ -49,10 +50,13 @@ export const TechStack: React.FC = () => {
               {/* Header */}
               <div className="flex items-center gap-4 mb-5">
                 <div className={`
-                   flex items-center justify-center w-12 h-12 rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3
-                   ${themes.iconBox}
-                 `}>
-                  <span className="material-icons-outlined text-2xl">{skillGroup.icon}</span>
+                     flex items-center justify-center w-12 h-12 rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3
+                     ${themes.iconBox}
+                   `}>
+                  {skillGroup.icon === "code" ? <CodeDrawIcon /> :
+                    skillGroup.icon === "psychology" ? <BrainDrawIcon /> :
+                      skillGroup.icon === "storage" ? <DatabaseDrawIcon /> :
+                        <WrenchDrawIcon />}
                 </div>
                 <h4 className="font-bold text-slate-900 dark:text-white text-base leading-tight">
                   {skillGroup.category}

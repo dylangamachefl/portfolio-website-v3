@@ -12,7 +12,7 @@ import { FadeIn } from './components/FadeIn';
 import { TechStack } from './components/TechStack';
 import { PROJECTS, INTERESTS, SOCIALS, USER_NAME, USER_ROLE, USER_BIO, GOOGLE_FORM_CONFIG } from './constants';
 import { Project } from './types';
-
+import { ThemeToggleIcon, DownloadArrowIcon } from './components/AnimatedIcons';
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -90,9 +90,7 @@ const App: React.FC = () => {
             aria-label="Toggle Dark Mode"
             title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
-            <span className="material-icons-outlined text-text-light-secondary dark:text-text-dark-secondary group-hover:text-primary transition-colors">
-              {isDarkMode ? 'light_mode' : 'dark_mode'}
-            </span>
+            <ThemeToggleIcon isDark={isDarkMode} />
           </button>
         </div>
 
@@ -108,7 +106,10 @@ const App: React.FC = () => {
                 <div className="relative rounded-lg bg-surface-light/80 backdrop-blur-sm p-6 shadow-sm dark:bg-surface-dark/80 transition-all duration-300 hover:shadow-md min-h-[350px] flex flex-col justify-center">
                   <div className="absolute top-6 right-6 group cursor-help">
                     <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-200 group-hover:scale-105">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                      <span className="relative flex h-2.5 w-2.5 mr-2.5 items-center justify-center">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
                       Open to work
                     </span>
                   </div>
@@ -131,9 +132,9 @@ const App: React.FC = () => {
                       </p>
                       <button
                         onClick={() => setIsResumeOpen(true)}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-text-light-primary dark:bg-white text-white dark:text-text-light-primary font-medium text-sm transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg"
+                        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-text-light-primary dark:bg-white text-white dark:text-text-light-primary font-medium text-sm transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg"
                       >
-                        <span className="material-icons-outlined text-lg">visibility</span>
+                        <DownloadArrowIcon />
                         View Resume
                       </button>
                     </div>
@@ -149,8 +150,8 @@ const App: React.FC = () => {
                     <div className="grid grid-cols-3 gap-4 h-full content-center min-h-[140px]">
                       {INTERESTS.map(interest => (
                         <div key={interest.id} className="group flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg dark:hover:shadow-slate-900/50 cursor-default hover:-translate-y-1.5 border border-transparent hover:border-slate-100 dark:hover:border-slate-600">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 dark:bg-slate-800 text-2xl shadow-sm ring-1 ring-slate-100 dark:ring-slate-700 transition-all duration-300 group-hover:scale-110 group-hover:ring-2 group-hover:ring-primary/20 group-hover:bg-primary/5 group-hover:text-primary group-hover:rotate-6">
-                            <span className="transition-transform duration-300 group-hover:rotate-12 transform select-none">{interest.icon}</span>
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 shadow-sm ring-1 ring-slate-100 dark:ring-slate-700 transition-all duration-300 group-hover:-translate-y-2 group-hover:ring-2 group-hover:ring-primary/20 group-hover:bg-primary/5 group-hover:text-primary">
+                            {interest.icon}
                           </div>
                           <span className="mt-3 text-[11px] font-bold uppercase tracking-wide text-text-light-secondary dark:text-text-dark-secondary text-center transition-colors group-hover:text-primary">{interest.label}</span>
                         </div>
@@ -161,7 +162,7 @@ const App: React.FC = () => {
 
                 {/* Location Image */}
                 <FadeIn delay={200} className="h-full">
-                  <div className="group relative overflow-hidden rounded-lg min-h-[200px] h-full shadow-sm cursor-pointer">
+                  <a href="https://www.google.com/maps/place/Bradenton,+FL/" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-lg min-h-[200px] h-full shadow-sm cursor-pointer block">
                     <img
                       alt="Bradenton, FL Placeholder"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -172,7 +173,7 @@ const App: React.FC = () => {
                       <p className="text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Based in</p>
                       <h3 className="text-2xl font-bold text-white drop-shadow-md">Bradenton, FL</h3>
                     </div>
-                  </div>
+                  </a>
                 </FadeIn>
               </div>
 
@@ -203,15 +204,18 @@ const App: React.FC = () => {
                           className="flex flex-col items-center justify-center gap-3 rounded-xl bg-background-light p-4 hover:bg-white hover:shadow-md dark:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 group hover:-translate-y-1 border border-transparent hover:border-slate-100 dark:hover:border-slate-500"
                           {...props}
                         >
-                          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-light dark:bg-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                            <svg
-                              className={`w-6 h-6 transition-colors ${social.color ? '' : 'fill-current text-text-light-secondary dark:text-text-dark-secondary group-hover:text-primary'}`}
-                              style={social.color ? { fill: social.color } : {}}
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d={social.iconPath} />
-                            </svg>
+                          <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-surface-light dark:bg-slate-800 shadow-sm transition-transform ${social.color ? '' : 'text-text-light-secondary dark:text-text-dark-secondary group-hover:text-primary'}`} style={social.color ? { color: social.color } : {}}>
+                            {social.customIcon ? (
+                              social.customIcon
+                            ) : (
+                              <svg
+                                className="w-6 h-6 fill-current transition-colors"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                {social.iconPath && <path d={social.iconPath} />}
+                              </svg>
+                            )}
                           </div>
                           <span className="font-medium text-sm group-hover:text-primary transition-colors">{social.platform}</span>
                         </Component>

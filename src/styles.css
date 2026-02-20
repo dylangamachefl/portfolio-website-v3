@@ -49,6 +49,7 @@ html {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -60,6 +61,7 @@ html {
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -76,9 +78,12 @@ html {
 
 /* Input focus glow effect */
 @keyframes focusGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
   }
+
   50% {
     box-shadow: 0 0 20px 0 rgba(59, 130, 246, 0.3);
   }
@@ -90,9 +95,12 @@ html {
 
 /* Send button pulse */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -100,4 +108,159 @@ html {
 
 .hover-pulse:hover:not(:disabled) {
   animation: pulse 0.6s ease-in-out infinite;
+}
+
+/* Send arrow shift right animation */
+@keyframes shiftRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-shift-right {
+  animation: shiftRight 1s ease-in-out infinite;
+}
+
+/* Draw In Path animation */
+.draw-in-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+.group:hover .draw-in-path {
+  animation: drawIn 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drawIn {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Social & Hobby Animations */
+@keyframes wag {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+.group:hover .animate-wag {
+  animation: wag 0.3s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes flip3d {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+
+  100% {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+
+.group:hover .animate-flip-3d {
+  animation: flip3d 1s ease-in-out forwards;
+}
+
+@keyframes rippleScale {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.group:hover .animate-ripple-1 {
+  animation: rippleScale 1s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.group:hover .animate-ripple-2 {
+  animation: rippleScale 1s ease-in-out infinite 0.2s;
+  transform-origin: center;
+}
+
+.group:hover .animate-ripple-3 {
+  animation: rippleScale 1s ease-in-out infinite 0.4s;
+  transform-origin: center;
+}
+
+@keyframes floatUpFade {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+.group:hover .animate-float-fade {
+  animation: floatUpFade 1s ease-in forwards;
+}
+
+.animate-float-fade-delay-1 {
+  animation: floatUpFade 1s ease-in forwards 0.2s;
+}
+
+.animate-float-fade-delay-2 {
+  animation: floatUpFade 1s ease-in forwards 0.4s;
+}
+
+@keyframes bounceOnce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.group:hover .animate-bounce-hover {
+  animation: bounceOnce 0.6s ease-in-out;
+}
+
+@keyframes rotateSparks {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.group:hover .animate-rotate-sparks {
+  animation: rotateSparks 2s linear infinite;
+  transform-origin: center;
 }
